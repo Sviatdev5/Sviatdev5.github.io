@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(background.jpg);
+    background-size:cover;
+    background-position: center;
+    color: white; /* тут ще подумаю*/
+    text-align: center;
+    background-attachment: fixed;
+}
+p {
+    text-align: justify;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.menu {
+    background: rgba(50, 50, 50, 0.9); /* Темний прозорий фон */
+    width: 100%; /* Робимо меню на всю ширину */
+    padding: 10px 0;
+    position: fixed; /* Закріплюємо меню внизу */
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center; /* Центруємо кнопки */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.menu a {
+    color: #1ca3ec; /* Неоновий синій */
+    display: block;
+    border-right: 1px solid #151718;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Geneva, Verdana, Sans-Serif;
+    text-decoration: none;
+    padding: 15px 20px;
+}
+
+.menu a:hover {
+    background: #1ca3ec;
+    color: black;
+    box-shadow: 0 0 10px #1ca3ec;
+}
+
+header {
+    background: rgba(50, 50, 50, 0.7); /* Напівпрозорий сірий */
+    backdrop-filter: blur(10px); /* Розмиття заднього фону */
+    padding: 30px;
+    text-align: center;
+  
+}
+h1 {
+    
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #1ca3ec, #5a2ca0);
+    background-clip: text;
+    color: transparent;
+}
+
+
+
+
+
+
+
+
+.section {
+    display: none;  
+    padding: 20px;
+    background-color: #10182F;
+    line-height: 1.6;
+    max-width: 960px;
+    margin: 20px auto;
+    color: #fff;
+}
+
+ 
+#home:target, #ship:target, #missions:target, #journeys:target {
+    display: block;
+    padding: 20px;
+    background-color: #10182F;
+    border-radius: 30px;
+    line-height: 1.6;
+    max-width: 960px;
+    margin: 20px auto;
+    color: #fff;
+}
+          
+
+/*
+main:not(:target) #home {
+    display: block;
+    background-color: #10182F;;
+}
+    */
+footer {
+    background: #222;
+    padding: 10px;
+    margin-top: 20px;
+    border-top: 2px solid #444;
+} 

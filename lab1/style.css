@@ -61,6 +61,7 @@ header {
     text-align: center;
   
 }
+
 h1 {
     
     font-size: 48px;
@@ -70,10 +71,22 @@ h1 {
     color: transparent;
 }
 
-
-
-
-
+input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #4A90E2;
+    background-color: #f1f9ff;
+    color: #333;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3sease;
+}
+main {
+    padding-bottom: 80px; /* Відступ, щоб футер не перекривав контент */
+}
 
 
 
@@ -83,8 +96,11 @@ h1 {
     background-color: #10182F;
     line-height: 1.6;
     max-width: 960px;
-    margin: 20px auto;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 30px;
     color: #fff;
+   
 }
 
  
@@ -92,23 +108,39 @@ h1 {
     display: block;
     padding: 20px;
     background-color: #10182F;
-    border-radius: 30px;
     line-height: 1.6;
     max-width: 960px;
-    margin: 20px auto;
     color: #fff;
 }
+
+/*Корабель зроблю під Flexible окремо*/
           
 
-/*
-main:not(:target) #home {
+
+:target:not(#home) ~ #home {
     display: block;
-    background-color: #10182F;;
+    background-color: #10182F;
 }
-    */
+
+
+body:not(:has(:target)) #home {
+    display: block;
+    background-color: #10182F;
+}
+
+
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: #222;
     padding: 10px;
-    margin-top: 20px;
     border-top: 2px solid #444;
-} 
+}
+
+footer p{
+    text-align: center;
+}
+
+

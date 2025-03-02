@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Arial";
     margin: 0;
     padding: 0;
     background-image: url(background.jpg);
@@ -100,6 +100,7 @@ main {
     margin-right: 25%;
     border-radius: 30px;
     color: #fff;
+
    
 }
 
@@ -108,9 +109,16 @@ main {
     display: block;
     padding: 20px;
     background-color: #10182F;
-    line-height: 1.6;
+    line-height: 2.0;
     max-width: 960px;
     color: #fff;
+}
+
+#home p{
+    padding-bottom: 3%;
+    text-indent: 30px;
+    font-family: "Open-Sans";
+    
 }
 
 /*Корабель зроблю під Flexible окремо*/
@@ -126,7 +134,45 @@ main {
 body:not(:has(:target)) #home {
     display: block;
     background-color: #10182F;
+
 }
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    /*Увага сумнівні властивості. Перегляту ще раз 
+    на сумісність*/
+    width: 100%;
+    max-width: 700px;
+
+}
+
+/*Від цих параметрів ефекту поки що я не бачу*/
+.сontrols label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    gap: 8px;
+    cursor:pointer;
+    
+}
+
+
+/*Властивості кнопок-вибору*/
+ input[type="radio"]{
+    accent-color:#00AEEF;
+    transform:scale(1.3);
+    cursor: pointer; /* Додаємо курсор для інтерактивності */
+  /*  margin-right: 5px; /* Робимо відступ перед текстом */
+}
+
+
+
 
 
 footer {

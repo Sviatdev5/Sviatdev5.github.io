@@ -9,6 +9,10 @@ body {
     text-align: center;
     background-attachment: fixed;
 }
+
+
+
+
 p {
     text-align: justify;
     font-size: 18px;
@@ -17,113 +21,13 @@ p {
 
 
 
-.menu {
-    background: rgba(50, 50, 50, 0.9); /* Темний прозорий фон */
-    width: 100%; /* Робимо меню на всю ширину */
-    padding: 10px 0;
-    position: fixed; /* Закріплюємо меню внизу */
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.menu ul {
-    display: flex;
-    justify-content: center; /* Центруємо кнопки */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-
-.menu a {
-    color: #1ca3ec; /* Неоновий синій */
-    display: block;
-    border-right: 1px solid #151718;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: Geneva, Verdana, Sans-Serif;
-    text-decoration: none;
-    padding: 15px 20px;
-}
-
-.menu a:hover {
-    background: #1ca3ec;
-    color: black;
-    box-shadow: 0 0 10px #1ca3ec;
-}
-
 header {
     background: rgba(50, 50, 50, 0.7); /* Напівпрозорий сірий */
     backdrop-filter: blur(10px); /* Розмиття заднього фону */
-    padding: 30px;
+    padding: 35px;
     text-align: center;
   
 }
-
-h1 {
-    
-    font-size: 48px;
-    font-weight: bold;
-    background: linear-gradient(45deg, #1ca3ec, #5a2ca0);
-    background-clip: text;
-    color: transparent;
-}
-
-input {
-    width: 80%;
-    padding: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: 2px solid #4A90E2;
-    background-color: #f1f9ff;
-    color: #333;
-    font-size: 16px;
-    outline: none;
-    transition: all 0.3sease;
-}
-main {
-    padding-bottom: 80px; /* Відступ, щоб футер не перекривав контент */
-}
-
-
-
-.section {
-    display: none;  
-    padding: 20px;
-    background-color: #10182F;
-    line-height: 1.6;
-    max-width: 960px;
-    margin-left: 25%;
-    margin-right: 25%;
-    border-radius: 30px;
-    color: #fff;
-
-   
-}
-
- 
-#home:target, #ship:target, #missions:target, #journeys:target {
-    display: block;
-    padding: 20px;
-    background-color: #10182F;
-    line-height: 2.0;
-    max-width: 960px;
-    color: #fff;
-}
-
-#home p{
-    padding-bottom: 3%;
-    text-indent: 30px;
-    font-family: "Open-Sans";
-    
-}
-
-/*Корабель зроблю під Flexible окремо*/
-          
-
 
 :target:not(#home) ~ #home {
     display: block;
@@ -137,56 +41,615 @@ body:not(:has(:target)) #home {
 
 }
 
-.controls {
+
+.menu {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 15px;
-    /*Увага сумнівні властивості. Перегляту ще раз 
-    на сумісність*/
-    width: 100%;
-    max-width: 700px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(50, 50, 50, 0.9); /* Темний прозорий фон */
+    width: 100%; /* Робимо меню на всю ширину */
+    padding: 10px 0;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+}
+
+
+
+ ul {
+    display: flex;
+    justify-content: center; /* Центруємо кнопки */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+.menu a {
+    display: block;
+    color: #1ca3ec; /* Неоновий синій */
+    border-right: 1px solid #151718;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Geneva, Verdana, Sans-Serif;
+    text-decoration: none; /*нема підкресленої лінії*/
+    padding: 15px 20px;
+}
+
+.menu a:hover {
+    background: #1ca3ec;
+    color: black;
+    box-shadow: 0 0 10px #1ca3ec;
+}
+
+
+
+
+h1 { /*градієнтний текст*/
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #1ca3ec, #5a2ca0);
+    background-clip: text;
+    color: transparent;  
+}
+
+
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #4A90E2;
+    background-color: #f1f9ff;
+    color: #333;
+    font-size: 16px;
+    outline: none;
+}
+
+main {
+    padding-bottom: 80px; /* Відступ, щоб футер не перекривав контент */
+}
+
+.section {
+    display: none; 
+    padding: 20px;
+    background-color: #10182F;
+    max-width: 960px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 30px;
+    color: #fff;
+}
+
+ 
+#home:target, #ship:target, #missions:target, #journeys:target {
+    display: block;
+    padding: 20px;
+    background-color: #10182F;
+    line-height: 2.0;
+}
+
+#home p{
+    padding-bottom: 3%;
+    text-indent: 30px;
+    font-family: "Open-Sans";
+    
+}
+          
+
+
+
+
+.mode-button:hover {
+    background: rgba(0, 174, 239, 0.3);
+}
+
+.mode-button.active {
+    background: #00AEEF;
+    border-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+#normal_mode{
+    background-image: url(normal_mode.jpg);
+    background-size:cover;
 
 }
 
-/*Від цих параметрів ефекту поки що я не бачу*/
-.сontrols label {
+#remont{
+    background-image: url(remont.jpg);
+    background-size:cover;
+
+}
+
+#hyperspace_flight{
+    background-image: url(hyperprostir.jpg);
+    background-size:cover;
+}
+
+#combat_readiness{
+    background-image: url(combat_readiness.jpg);
+    background-size:cover;
+
+}
+
+#emergency_mode{
+    background-image: url(emergency_mode.jpg);
+    background-size:cover;
+
+}
+
+#stels{
+    background-image: url(stels.jpg);
+    background-size:cover;
+
+}
+
+
+
+.controls {
     display: flex;
-    align-items: center;
-    font-size: 16px;
-    gap: 8px;
-    cursor:pointer;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin-bottom: 25px;
+}
+
+.mode-button {
+    position: relative;
+    flex: 1 1 calc(50% - 12px); /* базовий розмір (тобто кнопки займуть приблизно половину контейнера .controls, враховуючи gap).*/
+    min-width: 250px;
+    max-width: 350px;
+    background-size: cover;
+    background-position: center;
+    color: #ADD8E6; /* Світло-блакитний */
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+.mode-button:hover {
+    transform: scale(1.05);
+}
+
+.mode-button.active {
+    background: #00AEEF;
+    border-color: white;
+    color: #ADD8E6;
+    font-weight: bold;
+}
+
+#normal_mode {
+    background-image: url(normal_mode.jpg);
+}
+
+#remont {
+    background-image: url(remont.jpg);
+}
+
+#hyperspace_flight {
+    background-image: url(hyperprostir.jpg);
+}
+
+#combat_readiness {
+    background-image: url(combat_readiness.jpg);
+}
+
+#emergency_mode {
+    background-image: url(emergency_mode.jpg);
+}
+
+#stels {
+    background-image: url(stels.jpg);
+}
+
+#mars {
+    background-image: url(mars.jpg);
+    background-size: cover;
+}
+
+#moon {
+    background-image: url(moon.jpg);
+    background-size: cover;
+}
+
+#satelite {
+    background-image: url(satelite.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+
     
 }
 
+#neptun {
+    background-image: url(neptun.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#small {
+    background-image: url(small.jpg);
+    background-size: cover;
+    background-position: center;
+}
 
-/*Властивості кнопок-вибору*/
- input[type="radio"]{
-    accent-color:#00AEEF;
-    transform:scale(1.3);
-    cursor: pointer; /* Додаємо курсор для інтерактивності */
-  /*  margin-right: 5px; /* Робимо відступ перед текстом */
+#sun{
+    background-image: url(sun.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.parameters {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 12px; 
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px; 
+    margin-top: 15px;
+    border-radius: 15px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.param {
+    width: 100%;
+    font-size: 17px; 
+    font-weight: 600; 
+    color: #ffffff;
+    padding: 8px 12px; /* Додає внутрішні відступи */
+    background: rgba(255, 255, 255, 0.05); /* Легкий фон для окремих параметрів */
+    border-radius: 8px; /* Округлі кути */
+    transition: background 0.3s ease-in-out;
+}
+
+.param:hover {
+    background: rgba(255, 255, 255, 0.2); /* Підсвічування при наведенні */
+}
+
+
+.param label {
+    font-weight: bold;
+    color: #00AEEF;
+}
+
+progress {
+    height: 12px;
+    width: 100%;
+    border-radius: 6px;
+    background: #333;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #222; 
+    border-radius: 6px;
+}
+
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #00AEEF, #007bbd); /* Градієнт для красивого ефекту */
+    border-radius: 6px;
+    transition: width 0.5s ease-in-out; /* Плавне заповнення */
+}
+
+
+.param span {
+    margin-left: 10px;
+    font-weight: 600;
+    color: #ddd;
+}
+
+    
+    
+.missions, .journeys{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 800px;
 }
 
 
 
+.mode-buttonM {
+   /* position: relative;*/
+    flex: 0 1 calc(33.333% - 10px); /* Кнопки займають 1/3 ширини */
+    min-width: 250px;
+    width: 50%;
+    max-height: 550px;
+    background-size: cover;
+    color: #ADD8E6; /* Світло-блакитний */
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mode-buttonT {
+    position: relative;
+    flex: 1 1 calc(100%); /* базовий розмір (тобто кнопки займуть приблизно половину контейнера .controls, враховуючи gap).*/
+   /* min-width: 250px;*/
+    width: 50%;
+   /* max-width: 350px;*/
+    background-size: cover;
+    background-position: center;
+    color: #ADD8E6; /* Світло-блакитний */
+    font-size: 18px;
+    font-weight: 500;
+    /*padding: 15px 20px;*/
+    padding: 0;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    overflow: hidden;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.mode-buttonM:hover,.mode-buttonT:hover {
+    transform: scale(1.05);
+}
+/*
+.missions, .journeys {
+    padding: 8px;
+    width: 100%; 
+} 
+    */
 
 
-footer {
-    position: fixed;
+.button-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.button-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.button-text {
+    font-size: 16px;
+    font-weight: 400;
+    
+
+    color: white; 
+    font-weight: bold; /* Жирний шрифт для кращої видимості */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Тінь для контрасту */
+
+    
+}
+   
+
+    
+
+@media (max-width: 768px) {
+    .mode-button {
+        flex: 0 1 calc(50% - 10px); /* Для мобільних пристроїв кнопки займають 50% ширини */
+    }
+}
+
+@media (max-width: 480px) {
+    .mode-button {
+        flex: 0 1 100%; /* Для маленьких екранів кнопки займають всю ширину */
+    }
+}
+
+footer  {
+   /* position: fixed;*/
     bottom: 0;
     left: 0;
     width: 100%;
     background: #222;
-    padding: 10px;
+    padding: 20px;
     border-top: 2px solid #444;
 }
 
 footer p{
     text-align: center;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(50, 50, 50, 0.9); /* Темний прозорий фон */
+    width: 100%; /* Робимо меню на всю ширину */
+    padding: 10px 0;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+}
+
+
+
+ ul {
+    display: flex;
+    justify-content: center; /* Центруємо кнопки */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+.menu a {
+    display: block;
+    color: #1ca3ec; /* Неоновий синій */
+    border-right: 1px solid #151718;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Geneva, Verdana, Sans-Serif;
+    text-decoration: none; /*нема підкресленої лінії*/
+    padding: 15px 20px;
+}
+
+
+@media (max-width: 642px) {
+    body {
+        font-size: 14px; 
+        padding: 0 10px; 
+    }
+
+    h1 {
+        font-size: 32px; 
+    }
+
+    .menu{
+        /*position: static;*/ 
+        padding: 5px 0;
+        background: rgba(50, 50, 50, 0.8);
+    
+}
+
+    .menu ul {
+        flex-direction: row;
+    }
+
+    .menu a {
+        font-size: 14px; 
+        padding: 15px 20px; 
+    } 
+
+    .mode-button {
+        flex: 0 1 100%; 
+        min-width: auto;
+        padding: 10px; 
+    }
+
+    .mode-buttonM {
+        flex: 0 1 100%; 
+        min-width: auto;
+    }
+        
+
+
+    .section {
+        margin-left: 5%; 
+        margin-right: 5%;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 12px;
+        padding: 0;
+
+    }
+
+    .menu{
+       /* position: static;*/
+        padding: 0.1px 0;
+        background: rgba(50, 50, 50, 0.8);
+    }
+
+    header {
+        padding: 35px;
+        font-size: 14px; /* Зменшуємо шрифт */
+    }
+
+    .menu a {
+        font-size: 11px; 
+        padding: 7px 8px;
+    }
+
+    ul {
+        flex-direction: column; 
+         align-items: center;
+    }
+
+    h1 {
+        font-size: 28px; 
+    }
+
+    .mode-button {
+        flex: 0 1 100%; 
+        padding: 8px 10px;
+        
+
+    }
+
+
+    .button-title {
+        font-size: 14px; /* Зменшення розміру шрифта */
+    }
+
+    .button-text {
+        font-size: 10px; /* Зменшення шрифта для тексту */
+    }
+
+     .missions, .journeys {
+        padding: 8px;
+        width: 100%; 
+    } 
+    .mode-buttonM {
+        width: 50%;
+    }
+
+    .parameters {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px; 
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px; 
+        border-radius: 15px;
+        max-width: 90%;
+        
+    }
+
+    .param {
+        font-size: 14px; 
+        padding: 6px 10px;
+        border-radius: 6px;
+        width: 40%;
+        height: 84px;
+    }
+
+    
+
+    footer {
+        font-size: 10px; 
+        padding: 1px;
+    }
 }
 
 

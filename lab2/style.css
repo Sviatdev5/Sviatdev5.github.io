@@ -36,9 +36,7 @@ header {
     background: rgba(50, 50, 50, 0.7); /* Напівпрозорий сірий */
     backdrop-filter: blur(10px); /* Розмиття заднього фону */
     padding: 35px;
-    text-align: center;
-    
-  
+    text-align: center; 
 }
 
 :target:not(#home) ~ #home {
@@ -109,7 +107,7 @@ h1 { /*градієнтний текст*/
 }
 
 
-
+/* */
 input {
     width: 80%;
     padding: 10px;
@@ -798,5 +796,7 @@ footer p{
         padding: 1px;
     }
 }
+
+
 
 

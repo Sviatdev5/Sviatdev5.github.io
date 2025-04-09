@@ -23,7 +23,6 @@ for(i=0;i<missions.length; i++){
     missionСontainer.innerHTML += missionHTML;
 } 
 
-
 let expeditions = document.getElementsByClassName('mode-buttonM');
 function showControls(i) {
     let controls = document.querySelectorAll(".controls");

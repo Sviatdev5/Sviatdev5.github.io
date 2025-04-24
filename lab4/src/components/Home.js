@@ -8,7 +8,6 @@ function Home({onLoginSuccess, isMenuVisible}) {
     <Header isMenuVisible = {isMenuVisible}/>
     <div id="home" className="section">
       <Description/>
-     {!isMenuVisible && <RegistrationForm onLoginSuccess={onLoginSuccess}/> }
     </div>
     </div>
   );

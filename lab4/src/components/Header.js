@@ -5,7 +5,7 @@ function Header({isMenuVisible}){
         return(
             <header className="header">
                 <h1>Космічний симулятор</h1>
-                {isMenuVisible &&<Menu/>}
+                <Menu/>
             </header>
         )
     }

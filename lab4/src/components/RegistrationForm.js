@@ -44,6 +44,7 @@ function RegistrationForm({onLoginSuccess}) {
       </div>
       <div className="form-group button-container full-width">
         <button type="submit">Увійти</button>
+        <button type="submit">Назад</button>
       </div>
     </form>
   );

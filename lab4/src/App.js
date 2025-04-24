@@ -1,10 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./components/Home"
 import ShipSection from "./components/ShipSection"
 import { useState, useEffect } from "react"
 import MissionS from "./components/MissionS"
 import History from "./components/History"
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import { db } from "./firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
+import { useAuth } from "./context/AuthContext";
 
     function App(){
        const [isMenuVisible, setMenuVisible] = useState(false);
@@ -14,16 +22,31 @@ import History from "./components/History"
        const [elapsedTime, setElapsedTime] = useState(0);
        const [currentMode, setCurrentMode] = useState('normal_mode'); 
        const [isModeSelected, setIsModeSelected] = useState(false);
+       const {currentUser} = useAuth();
 
-       // Додаємо місію до історії, якщо вона завершена
-         useEffect(() => {
-           if (selectedMission && !isProgress) {
-             setMissions((prev) => [
-               ...prev,
-               { ...selectedMission, timestamp: Date.now(), finalTime: elapsedTime }
-             ]);
-           }
-         }, [isProgress, elapsedTime]);
+       useEffect(() => {
+        const saveCompletedMission = async () => {
+          if (selectedMission && !isProgress) {
+            const missionData = {
+              ...selectedMission,
+              timestamp: Date.now(),
+              finalTime: elapsedTime
+            };
+      
+            setMissions((prev) => [...prev, missionData]);
+      
+            if (currentUser) {
+              try {
+                await addDoc(collection(db, "users", currentUser.uid, "missions"), missionData);
+              } catch (err) {
+              }
+            }
+          }
+        };
+      
+        saveCompletedMission();
+      }, [isProgress, elapsedTime, currentUser]);
+      
        
          // Таймер для поточної місії
          useEffect(() => {
@@ -54,9 +77,11 @@ import History from "./components/History"
                     <div className="App">
                     <Routes>
                     <Route path="/" element={<Home onLoginSuccess={handleLoginSuccess} isMenuVisible={isMenuVisible}/> } />
-                    <Route path="/ship" element={<ShipSection currentMode={currentMode} isModeSelected={isModeSelected} setCurrentMode={setCurrentMode} setIsModeSelected={setIsModeSelected} selectedMission={selectedMission} isProgress={isProgress} isMenuVisible={isMenuVisible} setIsProgress={setIsProgress}/>} />
+                    <Route path="/ship" element={<ProtectedRoute><ShipSection currentMode={currentMode} isModeSelected={isModeSelected} setCurrentMode={setCurrentMode} setIsModeSelected={setIsModeSelected} selectedMission={selectedMission} isProgress={isProgress} isMenuVisible={isMenuVisible} setIsProgress={setIsProgress}/> </ProtectedRoute>} />
                     <Route path="/missions" element={<MissionS onMissionClick={handleMissionClick} isProgress={isProgress} isMenuVisible={isMenuVisible}/>} />
-                    <Route path="/journeys" element={<History missions={missions} setMissions={setMissions} setElapsedTime={setElapsedTime} elapsedTime={elapsedTime} selectedMission ={selectedMission} isProgress={isProgress} isMenuVisible={isMenuVisible}/>} />
+                    <Route path="/journeys" element={<ProtectedRoute><History missions={missions} setMissions={setMissions} setElapsedTime={setElapsedTime} elapsedTime={elapsedTime} selectedMission ={selectedMission} isProgress={isProgress} isMenuVisible={isMenuVisible}/></ProtectedRoute>} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
                     </Routes>
                     </div>
                     </Router>

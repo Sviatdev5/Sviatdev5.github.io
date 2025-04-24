@@ -182,6 +182,7 @@ form {
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -213,7 +214,8 @@ form {
 .button-container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;   
 }
 
 form button {
@@ -225,6 +227,7 @@ form button {
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
+    margin-left: 15px;
 }
 
 form button:hover {
@@ -751,6 +754,325 @@ progress::-webkit-progress-value {
     background-color: #3A4B4C;
     font-size: 18px;
 }
+
+/* Адаптивність для мобільних */
+@media(max-width: 600px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+    .full-width {
+        grid-column: 1 / 2;
+    }
+}
+
+form label {
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 8px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 200, 255, 0.7), 0 0 15px rgba(0, 200, 255, 0.4);
+}
+
+form label::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #00f0ff, #6a00ff);
+    transition: width 0.4s ease;
+    border-radius: 2px;
+}
+
+form label:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 25px rgba(106, 0, 255, 0.5);
+}
+
+form label:hover::after {
+    width: 100%;
+}
+
+
+
+.mode-buttonM {
+   /* position: relative;*/
+    flex: 0 1 calc(33.333% - 10px); /* Кнопки займають 1/3 ширини */
+    min-width: 250px;
+    width: 50%;
+    max-height: 550px;
+    background-size: cover;
+    color: #ADD8E6; /* Світло-блакитний */
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mode-buttonT {
+    position: relative;
+    flex: 1 1 calc(100%); /* базовий розмір (тобто кнопки займуть приблизно половину контейнера .controls, враховуючи gap).*/
+   /* min-width: 250px;*/
+    width: 50%;
+   /* max-width: 350px;*/
+    background-size: cover;
+    background-position: center;
+    color: #ADD8E6; /* Світло-блакитний */
+    font-size: 18px;
+    font-weight: 500;
+    /*padding: 15px 20px;*/
+    padding: 0;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    overflow: hidden;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.mode-buttonM:hover,.mode-buttonT:hover {
+    transform: scale(1.05);
+}
+
+
+
+.button-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.button-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.button-text {
+    font-size: 16px;
+    font-weight: 400;
+    
+    text-align: center ;
+    color: white; 
+    font-weight: bold; /* Жирний шрифт для кращої видимості */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Тінь для контрасту */
+
+    
+}
+   
+
+    
+
+@media (max-width: 768px) {
+    .mode-button {
+        flex: 0 1 calc(50% - 10px); /* Для мобільних пристроїв кнопки займають 50% ширини */
+    }
+}
+
+@media (max-width: 480px) {
+    .mode-button {
+        flex: 0 1 100%; /* Для маленьких екранів кнопки займають всю ширину */
+    }
+}
+
+footer  {
+    background-color: #222; /* Або ваш колір */
+    padding: 20px 0;
+    border-top: 2px solid #444;
+    margin-top: auto;
+    text-align: center;
+}
+
+.mission-timer {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #1ca3ec, #5a2ca0);
+    
+  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .mission-timer:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .mission-timer:before {
+    font-size: 28px;
+    margin-right: 10px;
+  }
+  
+  .mission-timer span {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+  
+
+
+footer p{
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 642px) {
+    body {
+        font-size: 14px; 
+        padding: 0 10px; 
+    }
+
+    h1 {
+        font-size: 32px; 
+    }
+
+
+    .menu{
+        position:static;
+        padding: 5px 0;
+        background: rgba(50, 50, 50, 0.8);
+    
+}
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu a {
+        font-size: 14px; 
+        padding: 5px 20px; 
+    } 
+
+    .mode-button {
+        flex: 0 1 100%; 
+        min-width: auto;
+        padding: 10px; 
+    }
+
+    .mode-buttonM {
+        flex: 0 1 100%; 
+        min-width: auto;
+    }
+        
+
+
+    .section {
+        margin-left: 5%; 
+        margin-right: 5%;
+        
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 12px;
+        padding: 0;
+
+    }
+
+    
+
+    .menu{
+        position: static;
+        padding: 0.1 0;
+        background: rgba(50, 50, 50, 0.8);
+        height: 95px;
+        border-radius: 34px;
+    }
+
+    header {
+        padding: 2px;
+        font-size: 14px; /* Зменшуємо шрифт */
+        border-radius: 34px;
+    }
+
+    .menu a {
+        font-size: 11px; 
+        padding: 5px 8px;
+        border-right: 0;
+    }
+
+    ul {
+        flex-direction: column; 
+         align-items: center;
+    }
+
+    h1 {
+        font-size: 28px; 
+    }
+
+    .mode-button {
+        flex: 0 1 100%; 
+        padding: 8px 10px;
+        
+
+    }
+
+
+    .button-title {
+        font-size: 14px; /* Зменшення розміру шрифта */
+    }
+
+    .button-text {
+        font-size: 10px; /* Зменшення шрифта для тексту */
+    }
+
+     .missions, .journeys {
+        padding: 8px;
+        width: 100%; 
+    } 
+    .mode-buttonM {
+        width: 50%;
+    }
+
+    .parameters {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px; 
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px; 
+        border-radius: 15px;
+        max-width: 90%;
+        
+    }
+
+    .param {
+        font-size: 14px; 
+        padding: 6px 10px;
+        border-radius: 6px;
+        width: 40%;
+        height: 84px;
+    }
+
+    
+
+    footer {
+        font-size: 10px; 
+        padding: 1px;
+    }
+}
+
+
 
 
 
